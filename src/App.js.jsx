@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row, Col, PageHeader } from 'react-bootstrap'
-import { loadTasksAndGroups } from './redux/actions'
+import { loadTasks, updateTasksToRender } from './redux/actions'
 import TaskList from './components/taskList.js.jsx'
 import TaskGroupList from './components/taskGroupList.js.jsx'
 
 class App extends Component {
 
   componentDidMount() {
-    this.props.loadTasksAndGroups();
+    this.props.loadTasks();
   }
 
   render() {
@@ -27,10 +27,15 @@ class App extends Component {
 
           <Col md={4}>
             <PageHeader>
-              Task Group
+              Task Group 
+              <small>
+                <a className='pull-right' onClick={() => {this.props.updateTasksToRender(Object.keys(this.props.tasks))}}>
+                  All Groups
+                </a>
+              </small>
             </PageHeader>
 
-            <TaskList tasks={this.props.tasks} />
+            <TaskList tasks={this.props.tasks} tasksToRender={this.props.tasksToRender} />
 
           </Col>
 
@@ -43,8 +48,9 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     tasks: state.tasks,
+    tasksToRender: state.tasksToRender,
     groups: state.groups
   }
 }
 
-export default connect(mapStateToProps, { loadTasksAndGroups })(App);
+export default connect(mapStateToProps, { loadTasks, updateTasksToRender })(App);

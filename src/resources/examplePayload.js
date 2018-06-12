@@ -1,4 +1,4 @@
-export const exampleTasks = [
+export const examplePayload = [
   {
     id: 1,
     group: "Purchases",
@@ -54,18 +54,5 @@ export const exampleTasks = [
     task: "Have a snack",
     dependencyIds: [11],
     completedAt: null,
-  }
-]
-
-export const exampleGroups = [
-  {
-    id: 1,
-    group: "Purchases",
-    taskIds: [1, 2, 3, 4, 5]
-  },
-  {
-    id: 2,
-    group: "Build Airplane",
-    taskIds: [6, 7, 8]
   }
 ]
