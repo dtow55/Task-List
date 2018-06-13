@@ -7,7 +7,7 @@ const TaskListItem = ({ group, tasks, updateTasksToRender }) => {
 
   return (
     <ListGroupItem onClick={ () => {updateTasksToRender(group.taskIds)} }>
-      <img src={GroupSvg}/> 
+      <img src={GroupSvg} alt=""/> 
       {' ' + group.name} <br/> 
       <small>{tasksComplete(group, tasks)} of {group.taskIds.length} tasks complete</small>
     </ListGroupItem>
