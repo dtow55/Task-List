@@ -9,7 +9,6 @@ export function loadTasks() {
     return dispatch({ 
       type: 'LOAD_TASKS_AND_GROUPS', 
       tasks: indexedTasks, 
-      allTaskIds: Object.keys(indexedTasks), 
       tasksToRender: Object.keys(indexedTasks), 
       groups: getGroupsFromTasks(examplePayload)
     });

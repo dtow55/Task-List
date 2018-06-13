@@ -12,12 +12,11 @@ export function indexTasks(taskPayload) {
   return indexedTasks;
 }
 
-
 // Returns array of unique Task Groups from task payload
-// Task Group object model looks as follows: 
+// Task Group object model looks as follows:
 // {
 //  name: "Purchases"
-//  taskIds: [1, 2, 3, 4, 5]  
+//  taskIds: [1, 2, 3, 4, 5]
 // }
 export function getGroupsFromTasks(taskPayload) {
   let groupsMap = new Map();
@@ -36,35 +35,30 @@ export function getGroupsFromTasks(taskPayload) {
   }
 
   // Turn 'groups' Map into an array of objects and return
-  groupsMap.forEach((value, key) => {
+  groupsMap.forEach((value,key) => {
     groupsArray.push({name: key, taskIds: value});
   });
 
   return groupsArray;
 }
 
-
 export function isComplete(task) {
   return !!task.completedAt;
 }
-
 
 // 'allTasks' must be in indexed form (as returned from indexTasks() above)
 export function isLocked(task, allTasks) {
   let dependencyIds = task.dependencyIds;
 
   for (let i = 0; i < task.dependencyIds.length; i++) {
-    if ( allTasks[dependencyIds[i]] ) { // handles dependency IDs that have not been loaded
-      if ( !allTasks[dependencyIds[i]].completedAt ) {
-        return true;
-      }
+    if ( allTasks[dependencyIds[i]] && !allTasks[dependencyIds[i]].completedAt ) { // handles dependency IDs that have not been loaded
+      return true;
     }
   }
 
   return false;
 }
 
-/*
 // Calculates number of completed and total tasks within a Task Group 
 export function taskGroupStatus(taskGroup, allTasks) {
   let status = {completed: 0, total: 0}
@@ -80,4 +74,3 @@ export function taskGroupStatus(taskGroup, allTasks) {
 
   return status;
 }
-*/
