@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 import TaskListItem from './taskListItem';
 
 const TaskList = ({ tasks, tasksToRender, toggleComplete}) => {

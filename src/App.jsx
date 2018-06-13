@@ -25,7 +25,11 @@ class App extends Component {
               All Groups
             </a><br/><br/>
 
-            <TaskGroupList groups={this.props.groups} tasks={this.props.tasks} updateTasksToRender={this.props.updateTasksToRender}/>
+            <TaskGroupList 
+              groups={this.props.groups} 
+              tasks={this.props.tasks} 
+              updateTasksToRender={this.props.updateTasksToRender}
+            />
 
           </Col>
 
@@ -34,7 +38,11 @@ class App extends Component {
               Things to Do
             </PageHeader>
 
-            <TaskList tasks={this.props.tasks} tasksToRender={this.props.tasksToRender} toggleComplete={this.props.toggleComplete} />
+            <TaskList 
+              tasks={this.props.tasks} 
+              tasksToRender={this.props.tasksToRender} 
+              toggleComplete={this.props.toggleComplete}
+            />
 
           </Col>
 

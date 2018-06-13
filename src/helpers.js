@@ -59,18 +59,15 @@ export function isLocked(task, allTasks) {
   return false;
 }
 
-// Calculates number of completed and total tasks within a Task Group 
-export function taskGroupStatus(taskGroup, allTasks) {
-  let status = {completed: 0, total: 0}
+// Calculates number of completed tasks within a Task Group
+export function tasksComplete(taskGroup, allTasks) {
+  let completed = 0;
 
   taskGroup.taskIds.forEach((taskId) => {
     if ( allTasks[taskId].completedAt ) {
-      status.completed++;
-      status.total++;
-    } else {
-      status.total++;
+      completed++;
     }
   });
 
-  return status;
+  return completed;
 }

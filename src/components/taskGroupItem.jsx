@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListGroupItem } from 'react-bootstrap';
 import GroupSvg from '../resources/Group.svg';
-import { taskGroupStatus } from '../helpers'
+import { tasksComplete } from '../helpers'
 
 const TaskListItem = ({ group, tasks, updateTasksToRender }) => {
 
@@ -9,7 +9,7 @@ const TaskListItem = ({ group, tasks, updateTasksToRender }) => {
     <ListGroupItem onClick={ () => {updateTasksToRender(group.taskIds)} }>
       <img src={GroupSvg}/> 
       {' ' + group.name} <br/> 
-      <small>{group.taskIds.length} tasks</small>
+      <small>{tasksComplete(group, tasks)} of {group.taskIds.length} tasks complete</small>
     </ListGroupItem>
   );
 }
