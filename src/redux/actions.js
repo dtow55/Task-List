@@ -27,6 +27,7 @@ export function updateTasksToRender(tasksToRender) {
 }
 
 // Toggles the completion status of a task when a complete or incomplete task is clicked
+// In a full version of this App, this would likely make a POST request to the backend to update the task status on the server
 export function toggleComplete(taskId) {
   return (dispatch) => {
     return dispatch({

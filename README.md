@@ -10,8 +10,10 @@
 - Locked Tasks cannot be marked complete until all dependent tasks are marked complete
 
 ## Notes
-- I implemented the following case to the best of my judgment, but believe it warrants further consideration: 
+- I implemented the following case to the best of my judgment, but believe it warrants further consideration. The App currently allows Task B to remain marked as complete, although a case could be made to make it revert to locked status
   - Task A is marked complete, which causes Task B (previously locked) to become unlocked
   - Task B is marked as complete
   - Task A is subsequently changed from complete to incomplete
-  
+- I moved the "All Groups" link from the top right (based on example screenshot in DropBox) to the top of the 'Task Group' column because it seemed to make more sense
+- The helpers.js file contains functions responsible for logic such as separating unique Task Groups from the supplied example payload (list of tasks); I would modify the API to provide this data so it doesn't have to be extracted from the list of tasks
+
