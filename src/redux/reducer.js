@@ -6,15 +6,15 @@ export default function reducer(state = [], action) {
       return Object.assign({}, state, {tasksToRender: action.tasksToRender});
     case 'TOGGLE_COMPLETE':
       let id = action.taskId;
-      let newState = Object.assign({}, state);
-      let newTask = {};
+      let updatedTask = {};
+
       if ( state.tasks[id].completedAt ) {
-        newTask[id] = Object.assign({}, newState.tasks[id], {completedAt: null});
+        updatedTask[id] = Object.assign({}, state.tasks[id], {completedAt: null});
       } else {
-        newTask[id] = Object.assign({}, newState.tasks[id], {completedAt: new Date().toString()});
+        updatedTask[id] = Object.assign({}, state.tasks[id], {completedAt: new Date().toString()});
       }
-      newState.tasks = Object.assign({}, newState.tasks, newTask);
-      return newState;
+
+      return Object.assign({}, state, {tasks: Object.assign({}, state.tasks, updatedTask)});
     default: 
       return state;
   }

@@ -1,7 +1,7 @@
 ## Installation
 - Fork and clone
 - Run 'npm install' to install package dependencies 
-- Run 'npm start' to start the app on a local server. This should automatically open a browser window to 'localhost:3000'
+- Run 'npm start' to start the app on a local server. If a browser window doesn't open automatically, open a browser window and navigate to the address listed in the console
 
 ## Usage
 - App initially loads displaying all Task Groups under the 'Task Group' heading, and all Tasks under the 'Things to Do' heading
