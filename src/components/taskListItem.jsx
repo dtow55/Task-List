@@ -1,6 +1,5 @@
 import React from 'react';
 import { ListGroupItem } from 'react-bootstrap';
-//import { isComplete, isLocked } from '../helpers';
 import Completed from '../resources/Completed.svg';
 import Locked from '../resources/Locked.svg';
 import Incomplete from '../resources/Incomplete.svg';
