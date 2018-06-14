@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListGroupItem } from 'react-bootstrap';
-import { isComplete, isLocked } from '../helpers';
+//import { isComplete, isLocked } from '../helpers';
 import Completed from '../resources/Completed.svg';
 import Locked from '../resources/Locked.svg';
 import Incomplete from '../resources/Incomplete.svg';
@@ -31,6 +31,25 @@ const TaskListItem = ({ task, tasks, toggleComplete }) => {
       </ListGroupItem>
     );
   }
+}
+
+// ***** HELPER FUNCTIONS *****
+
+function isComplete(task) {
+  return !!task.completedAt;
+}
+
+// 'allTasks' must be in indexed form
+function isLocked(task, allTasks) {
+  let dependencyIds = task.dependencyIds;
+
+  for (let i = 0; i < task.dependencyIds.length; i++) {
+    if ( allTasks[dependencyIds[i]] && !allTasks[dependencyIds[i]].completedAt ) { // handles dependency IDs that have not been loaded
+      return true;
+    }
+  }
+
+  return false;
 }
 
 export default TaskListItem;

@@ -4,17 +4,22 @@ import TaskGroupItem from './taskGroupItem';
 
 const TaskGroupList = ({ groups, tasks, updateTasksToRender }) => {
 
-    let groupItems = groups.map((group, id) => {
-      return (
-        <TaskGroupItem group={group} tasks={tasks} updateTasksToRender={updateTasksToRender} key={id}/>
-      );
-    });
-
+  let groupItems = groups.map((group, id) => {
     return (
-      <ListGroup>
-        {groupItems}
-      </ListGroup>
+      <TaskGroupItem
+        group={group}
+        tasks={tasks}
+        updateTasksToRender={updateTasksToRender}
+        key={id}
+      />
     );
+  });
+
+  return (
+    <ListGroup>
+      {groupItems}
+    </ListGroup>
+  );
 }
 
 export default TaskGroupList;

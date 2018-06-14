@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Row, Col, PageHeader } from 'react-bootstrap'
-import { loadTasks, updateTasksToRender, toggleComplete } from './redux/actions'
-import TaskList from './components/taskList'
-import TaskGroupList from './components/taskGroupList'
+import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
+import { loadTasks, updateTasksToRender, toggleComplete } from './redux/actions';
+import TaskList from './components/taskList';
+import TaskGroupList from './components/taskGroupList';
 
 class App extends Component {
 
@@ -57,7 +57,7 @@ const mapStateToProps = (state) => {
     tasks: state.tasks ? state.tasks : [],
     tasksToRender: state.tasksToRender ? state.tasksToRender : [],
     groups: state.groups ? state.groups : []
-  }
+  };
 }
 
 export default connect(mapStateToProps, { loadTasks, updateTasksToRender, toggleComplete })(App);

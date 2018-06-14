@@ -1,3 +1,6 @@
+# Task List
+Task List is my solution to the Wonderschool React UI coding challenge (https://www.dropbox.com/sh/8icefhbj8w39t20/AAAIuaNcW-1yd_rS36JLmqqoa?dl=0).
+
 ## Installation
 - Fork and clone
 - Run 'npm install' to install package dependencies 

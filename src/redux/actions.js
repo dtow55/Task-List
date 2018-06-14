@@ -1,5 +1,4 @@
-import { examplePayload } from '../resources/examplePayload'
-import { getGroupsFromTasks, indexTasks } from '../helpers'
+import { examplePayload } from '../resources/examplePayload';
 
 // Loads payload from local file, although would likely query a backend API in a full app
 export function loadTasks() {
@@ -35,4 +34,50 @@ export function toggleComplete(taskId) {
       taskId: taskId
     });
   };
+}
+
+// ***** HELPER FUNCTIONS *****
+
+// Returns task payload as an object with Task IDs as keys
+// Assumption: Task IDs in task payload may not start at 1 or may not be continuous integers
+function indexTasks(taskPayload) {
+  let indexedTasks = {};
+
+  for (let i = 0; i < taskPayload.length; i++) {
+    let taskId = taskPayload[i].id;
+
+    indexedTasks[taskId] = taskPayload[i];
+  }
+
+  return indexedTasks;
+}
+
+// Returns array of unique Task Groups from task payload
+// Task Group object model looks as follows:
+// {
+//  name: "Purchases"
+//  taskIds: [1, 2, 3, 4, 5]
+// }
+function getGroupsFromTasks(taskPayload) {
+  let groupsMap = new Map();
+  let groupsArray = [];
+
+  // Populate 'groups' Map with unique Task Group names
+  for (let i = 0; i < taskPayload.length; i++) {
+    let groupName = taskPayload[i].group;
+    let taskId = taskPayload[i].id;
+
+    if ( groupsMap.has(groupName) ) {
+      groupsMap.get(groupName).push(taskId);
+    } else {
+      groupsMap.set(groupName, [taskId]);
+    }
+  }
+
+  // Turn 'groups' Map into an array of objects and return
+  groupsMap.forEach((value,key) => {
+    groupsArray.push({name: key, taskIds: value});
+  });
+
+  return groupsArray;
 }
