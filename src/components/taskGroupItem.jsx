@@ -7,11 +7,11 @@ const TaskListItem = ({ group, tasks, updateTasksToRender }) => {
   return (
     <ListGroupItem onClick={ () => {updateTasksToRender(group.taskIds)} }>
       <div>
-        <img src={GroupSvg} alt=""/> 
+        <img src={GroupSvg} class="check-box" alt=""/> 
         {' ' + group.name}
       </div>
       <div>
-        <small>{tasksComplete(group, tasks)} of {group.taskIds.length} tasks complete</small>
+        <small class="gray">{tasksComplete(group, tasks)} of {group.taskIds.length} tasks complete</small>
       </div>
     </ListGroupItem>
   );

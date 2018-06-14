@@ -4,6 +4,7 @@ import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
 import { loadTasks, updateTasksToRender, toggleComplete } from './redux/actions';
 import TaskList from './components/taskList';
 import TaskGroupList from './components/taskGroupList';
+import './App.css'
 
 class App extends Component {
 

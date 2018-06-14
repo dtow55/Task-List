@@ -10,7 +10,7 @@ const TaskListItem = ({ task, tasks, toggleComplete }) => {
 
     return (
       <ListGroupItem onClick={() => {toggleComplete(task.id)}}>
-        <img src={Completed} alt=""/> <s>{task.task}</s>
+        <img src={Completed} class="check-box" alt=""/> <s>{task.task}</s>
       </ListGroupItem>
     );
 
@@ -18,7 +18,7 @@ const TaskListItem = ({ task, tasks, toggleComplete }) => {
 
     return (
       <ListGroupItem>
-        <img src={Locked} alt=""/> {task.task}
+        <img src={Locked} class="lock" alt=""/> <span class="light-gray">{task.task}</span>
       </ListGroupItem>
     );
 
@@ -26,7 +26,7 @@ const TaskListItem = ({ task, tasks, toggleComplete }) => {
 
     return (
       <ListGroupItem onClick={() => {toggleComplete(task.id)}}>
-        <img src={Incomplete} alt=""/> {task.task}
+        <img src={Incomplete} class="check-box" alt=""/> {task.task}
       </ListGroupItem>
     );
   }
