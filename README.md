@@ -11,7 +11,7 @@ https://www.dropbox.com/sh/8icefhbj8w39t20/AAAIuaNcW-1yd_rS36JLmqqoa?dl=0
 - [React](https://github.com/facebook/react) 
 - [Redux](https://github.com/reduxjs/redux)
 - [React Bootstrap](https://github.com/react-bootstrap/react-bootstrap)
-- [Create-React-App](https://github.com/facebook/create-react-app)
+- [Create-React-App](https://github.com/facebook/create-react-app), with some custom CSS styling
 
 ## Usage
 - App initially loads displaying all Task Groups under the 'Task Group' heading, and all Tasks under the 'Things to Do' heading
