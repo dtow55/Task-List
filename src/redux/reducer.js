@@ -14,7 +14,7 @@ export default function reducer(state = [], action) {
         updatedTask[id] = Object.assign({}, state.tasks[id], {completedAt: new Date().toString()});
       }
 
-      return Object.assign({}, state, {tasks: Object.assign({}, state.tasks, updatedTask)});
+      return Object.assign({}, state, {tasks: Object.assign({}, state.tasks, updatedTask  )});
     default: 
       return state;
   }
