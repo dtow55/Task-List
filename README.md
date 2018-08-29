@@ -20,6 +20,5 @@
   - Task A is marked complete, which causes Task B (previously locked) to become unlocked
   - Task B is marked as complete
   - Task A is subsequently changed from complete to incomplete
-- I moved the "All Groups" link from the top right (based on example screenshot in DropBox) to the top of the 'Task Group' column because it seemed to make more sense
 - The App currently has to calculate unique groups from the Task payload, I suggest modifying the backend API to provide these groups in JSON format
 
